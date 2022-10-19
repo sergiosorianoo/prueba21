@@ -1,0 +1,38 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,141,104)
+  Background = Color.Black
+  Foreground = Color.Green
+  Text = ("Snake v1")
+  { DrawingArea1 DrawingArea
+    MoveScaled(2,5,137.1429,91.4286)
+    Background = Color.ButtonForeground
+    Border = Border.Plain
+  }
+  { Jugar Button
+    MoveScaled(49,98,16,4.8571)
+    Background = Color.Black
+    Text = ("Jugar")
+  }
+  { Pausar Button
+    MoveScaled(75,98,16,4.8571)
+    Text = ("Pausar")
+  }
+  { Label1 Label
+    MoveScaled(60,1,11,3)
+    Font = Font["+4"]
+    Foreground = &HFF0000&
+    Text = ("Puntos:")
+  }
+  { Crono #Timer
+    #MoveScaled(133,97)
+    Delay = 100
+  }
+  { Label2 Label
+    MoveScaled(72,1,5,3)
+    Font = Font["+4"]
+    Foreground = Color.Red
+    Text = ("--")
+  }
+}

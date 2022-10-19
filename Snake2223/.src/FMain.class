@@ -1,0 +1,69 @@
+' Gambas class file
+
+
+Private viborita As Serpiente
+
+Private iPasos As Integer
+
+
+Public Sub Jugar_Click()
+
+  
+  viborita = New Serpiente(300, 300, 25500, "D")
+  iPasos = 1
+  Crono.Start()
+  'Es lo mismo que: Crono.Enabled = True
+
+End
+
+Public Sub Crono_Timer()
+  iPasos = iPasos + 1 
+  
+  If iPasos = 3 Then
+     viborita.crecer()
+     iPasos = 1 
+  Else
+     viborita.moverse()
+     
+  Endif
+  
+   
+      If (viborita.estasMuerta(DrawingArea1.W, DrawingArea1.Height)) Then
+       Crono.Stop()
+        Message.Info("Caramelo carameloo, tengo carameloooo")
+      Endif
+  
+  DrawingArea1.Refresh()
+
+End
+
+Public Sub DrawingArea1_Draw()
+
+  If (viborita <> Null) Then 
+     viborita.pintarse(DrawingArea1)
+  Endif
+
+End
+
+Public Sub DrawingArea1_KeyPress()
+'preguntamos que tecla pulsa
+  If (Key.Text = "W" Or Key.Text = "A" Or Key.Text = "S" Or Key.Text = "D") Then
+    viborita.cambiaDir(Key.Text)
+  Endif
+
+End
+
+Public Sub Form_KeyPress()
+'preguntamos que letra pulsa
+    If (Key.Text = "W" Or Key.Text = "A" Or Key.Text = "S" Or Key.Text = "D") Then
+    viborita.cambiaDir(Key.Text)
+  Endif
+
+End
+
+'Qué hacer cuando pulsan pause
+Public Sub Pause_Click()
+
+
+End
+
